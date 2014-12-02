@@ -6,7 +6,8 @@ This role configures Galera/MariaDB 5.5 cluster.
 Requirements
 ------------
 
-All requirements are listed in metadata file.
+You must add jinja2.ext.loopcontrols to your jinja2_extensions in your ansible.cfg. All other requirements are listed
+in metadata file.
 
 Role Variables
 --------------
