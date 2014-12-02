@@ -1,0 +1,17 @@
+---
+# Configure system users access to MariaDB
+
+- name: Configure MariaDB access for Ansible mysql_user module
+  file: src=/etc/mysql/debian.cnf dest=/root/.my.cnf owner=root group=root state=link force=yes
+
+- name: Set MariaDB root password for local login
+  mysql_user: name=root password={{ galera_root_password }} host=localhost state=present
+
+- name: Set MariaDB debian-sys-maint password for service control
+  mysql_user: name=debian-sys-maint password={{ galera_maintenance_password }} host=localhost state=present
+
+- name: Configure MariaDB root defaults-file
+  template: src=root/my.cnf.j2 dest=/root/.my.cnf owner=root group=root mode=0640 force=yes
+
+- name: Configure defaults-file for debian-sys-maint service user
+  template: src=debian.cnf.j2 dest=/etc/mysql/debian.cnf owner=root group=root mode=0640

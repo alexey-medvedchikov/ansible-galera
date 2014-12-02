@@ -1,0 +1,18 @@
+---
+# Configure MariaDB and Galera clustering
+
+- name: Stop MariaDB to configure Galera
+  service: name=mysql state=stopped
+
+- name: Galera configuration file
+  template: src=cluster.cnf.j2 dest=/etc/mysql/conf.d/cluster.cnf owner=root group=root mode=0640
+
+- name: MariaDB configuration file
+  template: src=my.cnf.j2 dest=/etc/mysql/my.cnf owner=root group=root mode=0644
+
+- name: Starting MariaDB service
+  service: name=mysql state=started
+
+- name: Cluster check script
+  template: src=usr/local/bin/pyclustercheck.j2 dest=/usr/local/bin/pyclustercheck owner=root group=root mode=0700
+

@@ -1,0 +1,10 @@
+---
+# Install required packages
+
+- name: install required packages
+  apt: pkg={{ item }} state=present
+  with_items:
+    - python-mysqldb
+    - mariadb-galera-server
+    - galera
+    - rsync

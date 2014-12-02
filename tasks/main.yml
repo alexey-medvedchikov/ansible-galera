@@ -1,0 +1,10 @@
+---
+
+- include: repository.yml
+- include: packages.yml
+- include: access.yml
+- include: secure.yml
+- include: config.yml
+
+
+
