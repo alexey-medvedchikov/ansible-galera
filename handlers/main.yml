@@ -1,0 +1,5 @@
+---
+# Handlers for MariaDB
+
+- name: restart mysql
+  service: name=mysql state=restarted
