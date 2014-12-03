@@ -6,5 +6,4 @@
 - include: secure.yml
 - include: config.yml
 
-
-
+- meta: flush_handlers
