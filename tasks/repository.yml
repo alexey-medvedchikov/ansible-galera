@@ -3,5 +3,5 @@
 
 - apt_key: keyserver=keyserver.ubuntu.com id=0xcbcb082a1bb943db
 
-- apt_repository: repo='deb http://mirror3.layerjet.com/mariadb/repo/5.5/ubuntu precise main' state=present
+- apt_repository: repo="deb http://mirror3.layerjet.com/mariadb/repo/5.5/ubuntu {{ ansible_distribution_release }} main" state=present
     update_cache=yes
