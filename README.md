@@ -6,8 +6,8 @@ This role configures Galera/MariaDB 5.5 cluster.
 Requirements
 ------------
 
-You must add jinja2.ext.loopcontrols to your jinja2_extensions in your ansible.cfg. All other requirements are listed
-in metadata file.
+You must add jinja2.ext.loopcontrols to your jinja2_extensions in your ansible.cfg. All other requirements
+are listed in metadata file.
 
 Role Variables
 --------------
@@ -28,7 +28,8 @@ them are as follows.
 	# Address MariaDB will listen on
 	galera_bind_address: 127.0.0.1
 
-	# Nodes with this parameter set to zero will be configured as standalone, i.e. wsrep_cluster_address=gcomm://
+	# Nodes with this parameter set to zero will be configured as standalone,
+	# i.e. wsrep_cluster_address=gcomm://
 	galera_bootstrap: 0
 
 	# Unique Galera cluster identifier
@@ -37,8 +38,8 @@ them are as follows.
 	# Addresses of cluster nodes to connect to
 	galera_cluster_members: [10.0.0.1, 10.0.0.2]
 
-So you can deploy multiple cluster within single inventory grouped by galera_cluster_name and setup interconnection by
-galera_cluster_members variable.
+So you can deploy multiple cluster within single inventory grouped by galera_cluster_name and setup
+interconnection by galera_cluster_members variable.
 
 Examples
 --------
@@ -59,6 +60,12 @@ Install galera cluster with default settings.
 	  roles:
 	    - role: galera
 
+	# inventory file
+	[cluster_one]
+	hostone
+	hosttwo
+	hostthree galera_bootstrap=1
+
 Dependencies
 ------------
 
@@ -72,5 +79,6 @@ LGPL
 Author Information
 ------------------
 
-Alexey Medvedchikov, 2GIS, LLC
-Sergey Antipov, 2GIS, LLC
+- Alexey Medvedchikov, 2GIS, LLC
+- Sergey Antipov, 2GIS, LLC
+

@@ -15,3 +15,4 @@
 
 - name: Configure defaults-file for debian-sys-maint service user
   template: src=debian.cnf.j2 dest=/etc/mysql/debian.cnf owner=root group=root mode=0640
+
