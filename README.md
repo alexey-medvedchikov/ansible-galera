@@ -73,3 +73,4 @@ Author Information
 ------------------
 
 Alexey Medvedchikov, 2GIS, LLC
+Sergey Antipov, 2GIS, LLC

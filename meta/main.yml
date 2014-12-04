@@ -17,6 +17,7 @@ galaxy_info:
     - squeeze
     - wheezy
   categories:
+  - database:sql
   - database
   - clustering
 dependencies: []
