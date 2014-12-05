@@ -1,6 +1,8 @@
 ---
 
 - include: repository.yml
+  when: galera_setup_repository == 1
+
 - include: packages.yml
 - include: access.yml
 - include: secure.yml

@@ -38,6 +38,9 @@ them are as follows.
 	# Addresses of cluster nodes to connect to
 	galera_cluster_members: [10.0.0.1, 10.0.0.2]
 
+	# Set to 0 to disable sources.list modification
+	galera_setup_repository: 1
+
 So you can deploy multiple cluster within single inventory grouped by galera_cluster_name and setup
 interconnection by galera_cluster_members variable.
 
