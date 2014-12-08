@@ -7,6 +7,5 @@ galera_cluster_password: 1qa2ws3ed
 galera_cluster_name: mycluster
 galera_cluster_members: [127.0.0.1]
 galera_bootstrap: 0
-galera_setup_repository: 1
 galera_bind_address: 127.0.0.1
 

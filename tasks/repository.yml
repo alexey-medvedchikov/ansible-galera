@@ -1,7 +1,9 @@
 ---
 # Setup installation repositories
 
-- apt_key: keyserver=keyserver.ubuntu.com id=0xcbcb082a1bb943db
+- name: import repository key
+  apt_key: keyserver=keyserver.ubuntu.com id=0xcbcb082a1bb943db
 
-- apt_repository: repo="deb http://mirror3.layerjet.com/mariadb/repo/5.5/{{ ansible_distribution|lower() }} {{ ansible_distribution_release }} main" state=present
-    update_cache=yes
+- name: add apt repository
+  apt_repository: repo="deb http://mirror3.layerjet.com/mariadb/repo/5.5/{{ ansible_distribution|lower() }} {{ ansible_distribution_release }} main"
+    state=present update_cache=yes

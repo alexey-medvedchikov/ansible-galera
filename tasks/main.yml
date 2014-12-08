@@ -1,9 +1,11 @@
 ---
 
 - include: repository.yml
-  when: galera_setup_repository == 1
+  tags: repository
 
 - include: packages.yml
+  tags: packages
+
 - include: access.yml
 - include: secure.yml
 - include: config.yml
