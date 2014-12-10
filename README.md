@@ -38,16 +38,14 @@ them are as follows.
 	# Addresses of cluster nodes to connect to
 	galera_cluster_members: [10.0.0.1, 10.0.0.2]
 
+	# Setup apt repository sources or not
+	galera_setup_repository: yes
+
+	# Install packages or not
+	galera_install_packages: yes
+
 So you can deploy multiple cluster within single inventory grouped by galera_cluster_name and setup
 interconnection by galera_cluster_members variable.
-
-Role Tags
----------
-
-Following tags may be used to modify role behaviour:
-
-- repository: add mariadb repository to apt sources list
-- packages: automatically install all required packages
 
 Examples
 --------
