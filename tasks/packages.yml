@@ -2,7 +2,11 @@
 # Install required packages
 
 - name: install required packages
-  apt: pkg={{ item }} state=present
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 11400
   with_items:
     - python-mysqldb
     - mariadb-galera-server
