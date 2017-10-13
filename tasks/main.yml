@@ -1,14 +1,17 @@
 ---
 
-- include: repository.yml
-  tags: repository
+- include_tasks: repository.yml
+  when: galera_setup_repository
+  tags:
+    - repository
 
-- include: packages.yml
-  tags: packages
+- include_tasks: packages.yml
+  when: galera_install_packages
+  tags:
+    - packages
 
-- include: access.yml
-- include: secure.yml
-- include: config.yml
+- include_tasks: access.yml
+- include_tasks: secure.yml
+- include_tasks: config.yml
 
 - meta: flush_handlers
-

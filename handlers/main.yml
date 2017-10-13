@@ -9,4 +9,3 @@
 
 - name: stop mysql
   service: name=mysql state=stopped
-

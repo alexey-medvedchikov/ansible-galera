@@ -10,4 +10,4 @@ galera_bootstrap: no
 galera_bind_address: 127.0.0.1
 galera_setup_repository: yes
 galera_install_packages: yes
-
+galera_install_clustercheck: yes

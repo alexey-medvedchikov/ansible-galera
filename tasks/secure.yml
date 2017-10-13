@@ -19,4 +19,3 @@
   mysql_user:
     name: ""
     state: absent
-

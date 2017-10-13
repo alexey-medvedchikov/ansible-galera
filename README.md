@@ -6,8 +6,7 @@ This role configures Galera/MariaDB 5.5 cluster.
 Requirements
 ------------
 
-You must add jinja2.ext.loopcontrols to your jinja2_extensions in your ansible.cfg. All other requirements
-are listed in metadata file.
+All requirements are listed in [metadata file](meta/main.yml).
 
 Role Variables
 --------------
@@ -44,13 +43,16 @@ them are as follows.
 	# Install packages or not
 	galera_install_packages: yes
 
+	# Install ClusterCheck or not
+	galera_install_clustercheck: yes
+
 So you can deploy multiple cluster within single inventory grouped by galera_cluster_name and setup
 interconnection by galera_cluster_members variable.
 
 Examples
 --------
 
-Install galera cluster with default settings.
+Install Galera cluster with default settings.
 
 	- hosts: cluster_one
 	  vars:
@@ -58,6 +60,7 @@ Install galera cluster with default settings.
 	    - galera_cluster_members: [10.0.0.1, 10.0.0.2]
 	  roles:
 	    - role: galera
+	      become: yes
 
 	- hosts: cluster_two
 	  vars:
@@ -65,12 +68,36 @@ Install galera cluster with default settings.
 	    - galera_cluster_members: [10.0.1.1, 10.0.1.2]
 	  roles:
 	    - role: galera
+	      become: yes
 
-	# inventory file
+Example inventory file:
+
 	[cluster_one]
-	hostone
-	hosttwo
-	hostthree galera_bootstrap=1
+	10.0.0.1 galera_bootstrap=1
+	10.0.0.2
+
+	[cluster_two]
+	10.0.1.1 galera_bootstrap=1
+	10.0.1.2
+
+Helpers
+-------
+
+Variable shows current node state:
+
+	mysql -e "SHOW STATUS LIKE 'wsrep_local_state_comment';"
+
+Variable shows if node is ready to accept queries:
+
+	mysql -e "SHOW STATUS LIKE 'wsrep_ready';"
+
+Variable shows if the node is connected to the cluster:
+
+	mysql -e "SHOW STATUS LIKE 'wsrep_connected';"
+
+Variable shows status of the cluster component:
+
+	mysql -e "SHOW STATUS LIKE 'wsrep_cluster_status';"
 
 Dependencies
 ------------
@@ -87,4 +114,3 @@ Author Information
 
 - Alexey Medvedchikov, 2GIS, LLC
 - Sergey Antipov, 2GIS, LLC
-

@@ -2,13 +2,28 @@
 # Configure MariaDB and Galera clustering
 
 - name: Galera configuration file
-  template: src=cluster.cnf.j2 dest=/etc/mysql/conf.d/cluster.cnf owner=root group=root mode=0640
+  template:
+    src: cluster.cnf.j2
+    dest: /etc/mysql/conf.d/cluster.cnf
+    owner: root
+    group: root
+    mode: 0640
   notify: restart mysql
 
 - name: MariaDB configuration file
-  template: src=my.cnf.j2 dest=/etc/mysql/my.cnf owner=root group=root mode=0644
+  template:
+    src: my.cnf.j2
+    dest: /etc/mysql/my.cnf
+    owner: root
+    group: root
+    mode: 0644
   notify: restart mysql
 
 - name: Cluster check script
-  template: src=usr/local/bin/pyclustercheck.j2 dest=/usr/local/bin/pyclustercheck owner=root group=root mode=0700
-
+  template:
+    src: usr/local/bin/pyclustercheck.j2
+    dest: /usr/local/bin/pyclustercheck
+    owner: root
+    group: root
+    mode: 0700
+  when: galera_install_clustercheck
