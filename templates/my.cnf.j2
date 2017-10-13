@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 [client]
 port            = 3306
 socket          = /var/run/mysqld/mysqld.sock
@@ -60,4 +62,3 @@ max_allowed_packet      = 16M
 key_buffer              = 16M
 
 !includedir /etc/mysql/conf.d/
-

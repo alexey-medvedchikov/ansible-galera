@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 [client]
 host     = localhost
 user     = debian-sys-maint
@@ -10,4 +12,3 @@ user     = debian-sys-maint
 password = {{ galera_maintenance_password }}
 socket   = /var/run/mysqld/mysqld.sock
 basedir  = /usr
-

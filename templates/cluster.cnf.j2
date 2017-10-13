@@ -1,4 +1,4 @@
-#{{ ansible_managed }}
+# {{ ansible_managed }}
 
 [mysqld]
 wsrep_provider="/usr/lib/galera/libgalera_smm.so"
@@ -17,7 +17,5 @@ wsrep_cluster_address=gcomm://{{ ",".join(galera_cluster_members) }}
 {% for ipaddr in ansible_all_ipv4_addresses %}
   {%- if ipaddr in galera_cluster_members %}
 wsrep_node_address="{{ ipaddr }}"
-  {%- break %}
   {%- endif %}
 {% endfor %}
-
